@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"unsafe"
 
 	"rsc.io/quote"
 )
@@ -56,4 +57,17 @@ func main() {
 
 	fmt.Printf("Esta si es una suma de flotante entre %f y %f es igual a: %f \n", floatante1, flotante2, sumaFloat)
 	fmt.Printf("Y esta es un uso de una variable constante: %f y un numero floante %f, sumando da iigual a : %f\n", iva, flotante2, flotante2+iva)
+
+	var array1 [3]int
+	array1[0] = 2
+	array1[1] = 6
+	array1[2] = 123
+
+	fmt.Printf("Array 1: %v\n", array1)
+
+	fmt.Println("El tamaño del array1 es :", len(array1))
+	fmt.Printf("Tipo: %T, byets: %d , bits: %d\n", array1, unsafe.Sizeof(array1), unsafe.Sizeof(array1)*8)
+
+	slice := array1[1:2]
+	fmt.Println(slice)
 }
