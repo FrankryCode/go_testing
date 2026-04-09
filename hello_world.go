@@ -58,6 +58,7 @@ func main() {
 	fmt.Printf("Esta si es una suma de flotante entre %f y %f es igual a: %f \n", floatante1, flotante2, sumaFloat)
 	fmt.Printf("Y esta es un uso de una variable constante: %f y un numero floante %f, sumando da iigual a : %f\n", iva, flotante2, flotante2+iva)
 
+	// esto es un comentario de un vector
 	var array1 [3]int
 	array1[0] = 2
 	array1[1] = 6
@@ -68,6 +69,24 @@ func main() {
 	fmt.Println("El tamaño del array1 es :", len(array1))
 	fmt.Printf("Tipo: %T, byets: %d , bits: %d\n", array1, unsafe.Sizeof(array1), unsafe.Sizeof(array1)*8)
 
-	slice := array1[1:2]
+	// esto es un comentario de un slice que esun vector dinamico
+	slice := array1[1:]
 	fmt.Println(slice)
+	fmt.Println("El tamaño del slice es :", len(slice))
+
+	//este es el uso de un slice para modificarlo en memoria
+
+	fmt.Println("Este es la direccion en memoria de mi slice", &slice[0])
+	fmt.Println("Este es la direccion en memoria de mi array", &array1[1])
+
+	//si yo modifico el valor de mi slice se vera refeljado en mi array porque comparten la misma direcion de memoria
+
+	slice[0] = 111
+	fmt.Println("Este es mi slice nuevo", slice)
+	fmt.Println("Este es el array modificado por mi slice", array1)
+
+	//usar make para crear un slice
+
+	mySlicebymake := make([]int, 5)
+	fmt.Println("Este es un slice creado por la funcion make", mySlicebymake)
 }
